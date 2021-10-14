@@ -1,0 +1,64 @@
+experiment:
+  data_config:
+    dataloader: VisualLoader
+    dataset_path: ../data/{0}/trainingset.tsv
+    side_information:
+      images_src_folder: ../data/{0}/original/images/
+      item_mapping: ../data/{0}/visual_feats.tsv
+      output_image_size: (224,224)
+      output_shape_size: (224,224)
+      visual_features: ../data/{0}/original/cnn_features_resnet50_avg_pool/
+    strategy: fixed
+    test_path: ../data/{0}/testset.tsv
+    train_path: ../data/{0}/trainingset.tsv
+    validation_path: ../data/{0}/validationset.tsv
+  dataset: amazon_boys_girls
+  evaluation:
+    cutoffs: [20, 50]
+    paired_ttest: true
+    relevance_threshold: 1
+    simple_metrics:
+    - HR
+    - nDCG
+    - MRR
+    - ItemCoverage
+    - EFD
+    - EPC
+    - Gini
+    - ACLT
+    - APLT
+    - ARP
+  gpu: -1
+  models:
+    AMR:
+      batch_eval: 4096
+      batch_size: 512
+      batch_train_defendant: 32
+      epoch_train_defendant: 100
+      epochs: 100
+      l_adv: 1
+      eps: 1
+      adversarial_epochs: 50
+      factors: 128
+      factors_d: 20
+      l_b: 0
+      l_w: 1.0e-05
+      lr: 0.001
+      lr_train_defendant: 0.0001
+      meta:
+        bb_category_class: 770
+        adversarial_top_k: 50
+        attack: true
+        create_attack_dataset: (1, 1, 1) # Train and Valid Not Available
+        defense: (denoiser) # ,madry
+        hyper_opt_alg: grid
+        num_attacked_items: 200
+        restore: false
+        save_recs: true
+        save_weights: true
+        test_attack_strategies: (1, 0, 1, 1)
+        train_defendant: true
+        validation_metric: HR
+        validation_rate: 10
+        verbose: true
+  top_k: 50

@@ -1,0 +1,44 @@
+[
+    {
+        "default_validation_metric": "HR",
+        "default_validation_cutoff": 50,
+        "rel_threshold": 1
+    },
+    {
+        "meta": {
+            "bb_category_class": 770,
+            "adversarial_top_k": 50,
+            "attack": true,
+            "create_attack_dataset": "(0, 0, 0)",
+            "defense": "(denoiser,nodefense)",
+            "hyper_opt_alg": "grid",
+            "num_attacked_items": 200,
+            "restore": true,
+            "save_recs": true,
+            "save_weights": true,
+            "test_attack_strategies": "(1, 0, 1, 1)",
+            "train_defendant": true,
+            "validation_metric": "HR",
+            "validation_rate": 10,
+            "verbose": true
+        },
+        "recommender": "AMR",
+        "configuration": {
+            "batch_eval": 4096,
+            "batch_size": 512,
+            "batch_train_defendant": 32,
+            "epoch_train_defendant": 100,
+            "epochs": 100,
+            "l_adv": 1,
+            "eps": 1,
+            "adversarial_epochs": 50,
+            "factors": 128,
+            "factors_d": 20,
+            "l_b": 0,
+            "l_w": 1e-05,
+            "lr": 0.001,
+            "lr_train_defendant": 0.0001,
+            "name": "AMR_e:100_bs:512_be:4096_factors:128_factors_d:20_lr:0.001_l_w:1e-05_l_b:0_l_e:0.1_eps:1_l_adv:1_adv_epochs:50"
+        }
+    }
+]

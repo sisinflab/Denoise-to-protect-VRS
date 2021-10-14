@@ -1,0 +1,61 @@
+experiment:
+  data_config:
+    strategy: fixed
+    dataloader: VisualLoader
+    dataset_path: ../data/{0}/trainingset.tsv
+    train_path: ../data/{0}/trainingset.tsv
+    validation_path: ../data/{0}/validationset.tsv
+    test_path: ../data/{0}/testset.tsv
+    side_information:
+      visual_features: ../data/{0}/original/cnn_features_resnet50_avg_pool/
+      images_src_folder: ../data/{0}/original/images/
+      output_image_size: (224,224)
+      output_shape_size: (224,224)
+      item_mapping: ../data/{0}/visual_feats.tsv
+  dataset: amazon_men
+  evaluation:
+    cutoffs: [20, 50]
+    paired_ttest: true
+    relevance_threshold: 1
+    simple_metrics:
+    - HR
+    - nDCG
+    - MRR
+    - ItemCoverage
+    - EFD
+    - EPC
+    - Gini
+    - ACLT
+    - APLT
+    - ARP
+  gpu: -1
+  models:
+    VBPR:
+      lr: 0.001
+      epochs: 100 # As in NeuMF Code
+      factors: 128
+      factors_d: 20
+      batch_size: 256
+      batch_eval: 1024
+      l_w: 0.001
+      l_b: 0
+      batch_train_defendant: 16
+      epoch_train_defendant: 100
+      lr_train_defendant: 0.0001
+      meta:
+        bb_category_class: 770
+        adversarial_top_k: 50
+        attack: true
+        create_attack_dataset: (1, 1, 1) # Train and Valid Not Available
+        defense: (denoiser,nodefense) # denoiser,madry
+        hyper_opt_alg: grid
+        num_attacked_items: 200
+        restore: false
+        save_recs: true
+        save_weights: true
+        test_attack_strategies: (1, 0, 1, 1)
+        train_defendant: true
+        validation_metric: HR
+        validation_rate: 10
+        verbose: true
+  top_k: 50
