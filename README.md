@@ -29,3 +29,5 @@ python start_experiments.py --config attack_amr_pinterest
 All the configuration files are uploaded in the  ```/config_files``` folder. Note that they are customizable (e.g., gpu: 0 allows to activate the GPU 0).
 
 The full set of results reported in the submission are available in the ```/article-results``` folder. 
+
+We have implemented the entire pipeline integrating them in the original models of the framework. We refer to  ```/elliot/recommender/adversarial/AMR``` and ```/elliot/recommender/visual/VBPR```.
