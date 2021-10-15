@@ -5,7 +5,7 @@ from PIL import Image
 import os
 import shutil
 
-datasets = ['amazon_boys_girls', 'amazon_men', 'pinterest']
+datasets = ['amazon_boys_girls']: #, 'amazon_men', 'pinterest']
 whiteFrame = 255 * np.ones((224, 224, 3), np.uint8)
 whiteImage = Image.fromarray(whiteFrame)
 
