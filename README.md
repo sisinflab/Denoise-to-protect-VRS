@@ -1,4 +1,4 @@
-# Adversarial Image Denoiser to Defend Visual-based Recommender Systems against Attacks
+# Adversarial Image Denoiser: A Method to Protect Visual Recommenders from Adversarial Attacks.
 
 Install the framework following the instruction on [ELLIOT-INSTALLATION.md](ELLIOT-INSTALLATION.md)
 
