@@ -1,4 +1,5 @@
-# Adversarial Image Denoiser: A Method to Protect Visual Recommenders from Adversarial Attacks.
+# Denoise to Protect: a Method to Robustify Visual Recommenders from Adversaries.
+Accepted at SIGIR 2023.
 
 Install the framework following the instruction on [ELLIOT-INSTALLATION.md](ELLIOT-INSTALLATION.md)
 
